@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai2</title>
+    <link rel="stylesheet" href="../bootstrap-5.2.3-dist/css/bootstrap.min.css">
+    <script src="../bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
+    <script src="../bootstrap-5.2.3-dist/js/jquery-3.4.1.min.js"></script>
+    <script src="../js/main.js"></script>
+    
+</head>
+<body>
+   
+    <div class="container border border-3 border-primary">
+        <div class="row">
+                <img src="../img/header.png" alt="">
+        </div>
+        <div   class="row">
+            <div class="col-4">
+                <table class="table border text-center">
+                    <tr >
+                        <th colspan="2" style="color: #0231dd;" class="bg-body-secondary">Bảng tin thị trường</th>
+                        
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="text-primary bg-body-secondary">Vàng</th>
+                        
+                    </tr>
+                    <tr >
+                        <th class="border text-primary">Mua vào</th>
+                        <th class="text-primary">Bán &nbsp; ra</th>
+                    </tr>
+                    <tr id="vanghtml">
+                        
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="text-primary bg-body-secondary">USD</th>
+                     
+                    </tr>
+                    <tr>
+                        <th class="border text-primary">Mua vào</th>
+                        <th class="text-primary">Bán &nbsp; ra</th>
+                    </tr>
+                    <tr id="USDhtml">
+                        
+                    </tr>
+                </table>
+            </div>
+            <div class="col-4 ">
+                <table class="table border text-center ">
+                    <tr>
+                        <th colspan="2" style="color: #0231dd;" class="bg-body-secondary">Cập nhật giá cả thị trường</th>
+                      
+                    </tr>
+                    <tr >
+                        <th class="border bg-body-secondary">Mua vào</th>
+                        <td class="bg-body-secondary"><input type="text" id="giamua" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th class="border bg-body-secondary">Bán ra</th>
+                        <td class="bg-body-secondary"><input type="text" id="giaban" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <th class="border bg-body-secondary">Loại xe </th>
+                        <td class="bg-body-secondary">
+                            <select name="" id="selectCar">
+                                <option value="Toyota">Toyota</option>
+                                <option value="KIA">KIA</option>
+                                <option value="Ford">Ford</option>
+                                <option value="Civic">Civic</option>
+                                <option value="Ferrari">Ferrari</option>
+                                <option value="Mercedes">Mercedes</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border  bg-body-secondary"></td>
+                        <td  class="bg-body-secondary">
+                            <input type="radio" id="checkedvang" name="radio" class="form-check-input"  value="Vang"><label for="checkedvang">Vàng</label>
+                            <input type="radio" id="checkedusd" name="radio" class="form-check-input" value="USD"><label for="checkedusd" >USD</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border bg-body-secondary"></td>
+                        <td  class="bg-body-secondary">
+                            <input type="button" class="btn btn-secondary" value="Update" id="update" onclick="update()">
+                            <input type="button" class="btn border-primary" value="State" onclick="introduceCar()">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-4">
+                <table class="table border">
+                    <tr>
+                        <th class="text-center bg-body-secondary" style="color: #0231dd;" class="bg-body-secondary" >Bảng báo giá</th>
+                    </tr>
+                    <tr>
+                        <td><p id="carDisc" class="text-primary fw-bold"></p></td>
+                    </tr>
+                    <tr>
+                        <td class="bg-body-secondary" id="carImg" ></td>
+                    </tr>
+                    <tr>
+                        <td>Giá: <span id="carPrice"></span></td>
+                    </tr>
+                </table>
+               
+            </div>
+        </div>
+    </div>
+    <script>
+        function update (){
+    var giamua = $("#giamua").val();
+    var giaban = $("#giaban").val();
+    var checked = $("input[type='radio']:radio:checked").val();
+
+    var vanghtml = $("#vanghtml") ;
+    var USDhtml = $("#USDhtml") ;
+    if (checked  === "Vang"){
+        var newrow = 
+        `  
+        
+            <td class="border"> ${giamua}</td>
+            <td class =""> ${giaban}</td>           
+                        
+           
+           
+
+        `
+        
+       
+        vanghtml.append(newrow);
+       
+    }
+     else if (checked === "USD"){
+        var newrow = 
+        `  
+       
+            <td class="border"> ${giamua}</td>
+            <td class ="border"> ${giaban}</td>
+        
+
+        `
+        USDhtml.append(newrow);
+    }
+
+}
+
+function Car(brand, discription, image, price) {
+    this.brand = brand;
+    this.discription = discription;
+    this.image = image;
+    this.price = price;
+    }
+    
+    var car1 = new Car("Toyota" , "bền bỉ , tiết kiệm" , "../img/car1.jpg" , "35000" );
+    var car2 = new Car("KIA" , "mới mẻ" , "../img/car2.jpg" , "15000" );
+    var car3 = new Car("Ford" , "mạnh mẽ" , "../img/car3.jpg" , "40000" );
+    var car4 = new Car("Civic" , "trẻ trung" , "../img/car4.jpg" , "32000" );
+    var car5 = new Car("Ferarri" , "tốc độ" , "../img/car5.jpg" , "50000" );
+    var car6 = new Car("Mercedes" , "sang trọng" , "merc.jfif" , "45000" );
+    
+    function introduceCar(){
+    let disc= document.getElementById("carDisc");
+    let img= document.getElementById("carImg");
+    let price= document.getElementById("carPrice");
+    let selectValue= document.getElementById("selectCar").value;
+    switch(selectValue){
+        case "Toyota":{
+            disc.innerHTML= "- "+car1.discription;
+            img.innerHTML= "<img src=\""+car1.image+"\"style=\"margin-left: 20px; width:350px; heigth:300px\">";
+            price.innerHTML= "Gia: "+car1.price+" USD";
+        } break;
+        case "KIA":{
+            disc.innerHTML= "- "+car2.discription;
+            img.innerHTML= "<img src=\""+car2.image+"\"style=\"margin-left: 20px; width:350px; heigth:300px\">";
+            price.innerHTML= "Gia: "+car2.price+" USD";
+        } break;
+        case "Ford":{
+            disc.innerHTML= "- "+car3.discription;
+            img.innerHTML= "<img src=\""+car3.image+"\"style=\"margin-left:20px; width:350px; heigth:300px\">";
+            price.innerHTML= "Gia: "+car3.price+" USD";
+        } break;
+        case "Civic":{
+            disc.innerHTML= "- "+car4.discription;
+            img.innerHTML= "<img src=\""+car4.image+"\"style=\"margin-left: 20px; width:350px; heigth:300px\">";
+            price.innerHTML= "Gia: "+car4.price+" USD";
+        } break;
+        case "Ferrari":{
+            disc.innerHTML= "- "+car5.discription;
+            img.innerHTML= "<img src=\""+car5.image+"\"style=\"margin-left: 20px; width:350px; heigth:300px\">";
+            price.innerHTML= "Gia: "+car5.price+" USD";
+        } break;
+        case "Mercedes":{disc.innerHTML= "- "+car6.discription;
+            img.innerHTML= "<img src=\""+car6.image+"\"style=\"margin-left: 20px; width:350px; heigth:300px\">";
+            price.innerHTML= "Gia: "+car6.price+" USD";
+        } break;
+    }
+    }
+    </script>
+</body>
+</html>

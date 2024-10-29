@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    width: 800px;
+    margin: 0 auto;
+    border: 1px solid #000;
+}
+
+form {
+    width: 500px;
+    margin: 20px auto;
+}
+
+input.form-control {
+    width: 60%;
+    margin: 5px;
+}
+
+h3  {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.d-flex {
+    height: 47px;
+    align-items: center;
+}
+button.btn {
+    border: 1px solid;
+    background-color: #efefef;
+}
+
+button.btn:hover {
+    border: 1px solid;
+}
+label {
+    margin-left: auto;
+}
+
+.error {
+    display: flex;
+    align-items: center;
+    color: red;
+    margin-left: 0;
+    width: 30px;
+    height: inherit;
+}
